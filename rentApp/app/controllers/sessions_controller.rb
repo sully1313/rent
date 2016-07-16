@@ -1,22 +1,29 @@
 class SessionsController < ApplicationController
 
   def new
+    @user = User.new
   end
 
   def create
-    user = User.find_by_email(params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to 'users#index'
+    @user = User.confirm(user_params)
+    if @user
+      login(@user)
+      redirect_to "/"
     else
-      redirect_to '/login'
+      flash[:error] = "The password or e-mail entered is incorrect. Please try again"
+      redirect_to signin_path
     end
   end
 
-  def destroy
-    session[:user_id] = nil
-    redirect_to '/login'
+  def delete
+    logout
+    redirect_to '/'
   end
 
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 
 end
