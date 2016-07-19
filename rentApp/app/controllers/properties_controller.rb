@@ -2,20 +2,19 @@ class PropertiesController < ApplicationController
 
 def index
   @properties = Property.all
-  search
+  @hash = Gmaps4rails.build_markers(@properties) do |property, marker|
+      marker.lat property.latitude
+      marker.lng property.longitude
+      marker.infowindow property.review
+    end
   render :index
 end
 
 def show
-  @review = Review.find(params[:id])
+  @properties = Property.all
   @user = User.find(params[:id])
-  @property = Property.find(params[:id])
-  @reviews = Property.find(params[:id]).reviews
   render :_show
 end
 
-def reviews
-  @reviews = Property.find(params[:id]).reviews
-  @property = Property.find(params[:id])
-end
+
 end

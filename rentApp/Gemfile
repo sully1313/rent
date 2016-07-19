@@ -34,6 +34,11 @@ gem 'faker'
 
 gem 'acts_as_votable', '~> 0.10.0'
 
+gem 'gmaps4rails'
+
+gem 'geocoder'
+
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

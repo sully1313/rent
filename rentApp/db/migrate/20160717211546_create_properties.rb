@@ -6,11 +6,9 @@ class CreateProperties < ActiveRecord::Migration
       t.string :state
       t.float :latitude
       t.float :longitude
-      t.string :sqfeet
-      t.string :price
       t.string :img
       t.string :type
-      t.text :description
+      t.text :review
 
       t.timestamps null: false
     end

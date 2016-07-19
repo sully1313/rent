@@ -22,23 +22,11 @@ ActiveRecord::Schema.define(version: 20160718231153) do
     t.string   "state"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "sqfeet"
-    t.string   "price"
     t.string   "img"
     t.string   "type"
-    t.text     "description"
+    t.text     "review"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.text     "text"
-    t.string   "title"
-    t.integer  "user_id"
-    t.integer  "property_id"
-    t.datetime "timestamp"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -9,12 +9,12 @@ rescue_from CanCan::AccessDenied do |exception|
   redirect_to root_url, :alert => exception.message
 end
 
-def search
-  if params[:search]
-    @properties = Property.search(params[:search])
-  else
-    @properties = Property.all
-  end
-end
+# def search
+#   if params[:search]
+#     @properties = Property.search(params[:search])
+#   else
+#     @properties = Property.all
+#   end
+# end
 
 end

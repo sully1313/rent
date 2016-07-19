@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   before_action only: [:show, :edit, :update, :destroy]
 
-  def index
-    search
-    render :index
-  end
 
   def new
     @user = User.new
@@ -24,7 +20,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @reviews = @user.reviews
     render :show
   end
 
@@ -45,9 +40,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def reviews
-    @reviews = User.find(params[:id]).reviews
-  end
   private
 
   def user_params
