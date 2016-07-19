@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+
+#map {
+  height: 400px;
+}
+#logo13 {
+  color: green;
+}
+
+.brand-logo {
+  position: absolute;
+  left: 6%;
+}
+
+strong {
+  color: white;
+}
+
+.right {
+  position: absolute;
+  right: 11%;
+  top: 6%;
+}
+
+#right li a {
+  color: white;
+  font-size: 160%;
+}

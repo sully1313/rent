@@ -1,1 +1,15 @@
-<h1>Home Page</h1>
+<section id="topHome">
+
+<%= form_tag(properties_path, method: "get", id: "search-form") do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: "Enter Address" %>
+    <%= submit_tag "Search", :streetaddress => nil %>
+  </p>
+  <% end %>
+</section>
+<section id="Home2">
+
+</section>
+<section id="contact">
+
+</section>

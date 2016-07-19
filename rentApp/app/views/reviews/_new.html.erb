@@ -1,0 +1,14 @@
+<%= form_for @review, url: "/properties/#{@property.id}/reviews" do |f| %>
+
+    <div>
+      <%= f.text_field :title, placeholder: "Title" %>
+    </div>
+    <div>
+      <%= f.text_field :text, placeholder: "Description" %>
+    </div>
+
+    <br>
+      <%= f.submit "Post Review", :class => "button" %>
+    <br>
+
+  <% end %>

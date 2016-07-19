@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>RentApp</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+  <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
-
+  <!-- Javascript -->
 </head>
 <body>
+  <nav class="black">
+      <div class="navbar-wrapper container">
+        <a href="/" class ="brand-logo class"><strong>Rent<span id="logo13">13</span></strong></a>
+
+        <ul class="right" id="right">
+        <% if session[:user_id].nil? %>
+
+          <li><%= link_to "Login", signin_path %></li>
+          <li><%= link_to "Create Account", new_user_path %></li>
+
+        <% else %>
+
+          <li><%= link_to "Profile", user_path(current_user[:id]) %></li>
+          <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
+
+        <% end %>
+      </ul>
+
+      </div>
+    </nav>
 
 <%= yield %>
 
