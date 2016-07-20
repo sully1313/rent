@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card-panel">
+    <div class="header card-panel">
+      <h3><%= @review.title %></h3>
+      <p>
+        <strong><a href="/users/<%= @review.user_id %>"><%= @review.user.first_name %> <%= @review.user.last_name %></a>
+        <br>
+        <a href="/properties/<%= @review.property_id %>"><%= @review.property.streetaddress %> </a> <br>
+        <%= @review.created_at.strftime("%b %d, %Y") %></strong>
+      </p>
+    </div>
+    <p class="flow-text">
+      <%= @review.text %>
+    </p>
+
+    <% if can? :manage, @review %>
+
+    <div>
+      <form action='/reviews/<%= @review.id %>/edit' method='get'>
+        <button>Edit</button>
+      </form>
+    </div>
+
+    <%= button_to "Delete", property_review_path(@review.property.id, @review.id), method: :delete %>
+
+  </div>
+  <% end %>
+
+</div>

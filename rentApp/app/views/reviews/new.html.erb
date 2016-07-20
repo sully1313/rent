@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="card-panel">
+    <%= form_for @review, url: "/properties/#{@property.id}/reviews" do |f| %>
+    <h3><%= @property.streetaddress %></h3>
+    <div>
+      <%= f.text_field :title, placeholder: "Title" %>
+    </div>
+    <div>
+      <%= f.text_field :text, placeholder: "What did you think of this place?" %>
+    </div>
+
+    <br>
+    <%= f.submit "Post", :class => "button" %>
+    <br>
+
+    <% end %>
+  </div>
+</div>

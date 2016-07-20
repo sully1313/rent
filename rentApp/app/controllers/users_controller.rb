@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @reviews = @user.reviews
     render :show
   end
 
@@ -37,9 +38,15 @@ class UsersController < ApplicationController
       else
         redirect_to '/users/#{@user.id}/edit'
       end
+    else
+      redirect_to "/"
     end
   end
 
+  def reviews
+    @reviews = User.find(params[:id]).reviews
+  end
+  
   private
 
   def user_params

@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
 
 #USERS
-  resources :users do
-    resources :reviews
-  end
-  get '/users/:id/reviews', to: "users#reviews"
+  resources :users 
   get '/users/:id', to: 'users#show'
-  get '/', to: 'properties#index', as: 'home'
-  get '/properties', to: 'properties#show'
+  get '/properties', to: 'properties#index', as: 'home'
+  get '/properties/:id', to: 'properties#_show'
+  get '/', to: 'properties#search'
 #SESSIONS
   get "/signin", to: "sessions#new", as: "signin"
   post "/sessions", to: "sessions#create"

@@ -1,0 +1,13 @@
+<div class="card-panel">
+  <%= form_for @review do |f| %>
+  <div>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.text_field :text %>
+  </div>
+
+  <br>
+  <%= f.submit "Update" %>
+</div>
+<% end %>

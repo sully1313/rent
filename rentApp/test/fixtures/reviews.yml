@@ -1,15 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  text: MyText
   title: MyString
-  user_id: 1
-  property_id: 1
-  timestamp: 2016-07-16 14:39:37
+  text: MyText
 
 two:
-  text: MyText
   title: MyString
-  user_id: 1
-  property_id: 1
-  timestamp: 2016-07-16 14:39:37
+  text: MyText

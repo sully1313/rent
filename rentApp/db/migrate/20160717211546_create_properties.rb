@@ -8,7 +8,8 @@ class CreateProperties < ActiveRecord::Migration
       t.float :longitude
       t.string :img
       t.string :type
-      t.text :review
+      t.string :price
+      t.string :sqft
 
       t.timestamps null: false
     end
