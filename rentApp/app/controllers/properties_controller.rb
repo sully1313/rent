@@ -14,11 +14,11 @@ def index
 end
 
 def show
-  @review = Review.find(params[:id])
   @property = Property.find(params[:id])
-  @user = User.find(params[:id])
+  @user = current_user
+  @review = @property.reviews
   @reviews = Property.find(params[:id]).reviews
-  render :_show
+  render :show
 end
 
 def reviews
@@ -31,6 +31,10 @@ def search
   render :search
 end
 
+private
 
+def property_params
+  params.require(:property).permit(:streetaddress, :city, :state, :latitude, :longitude, :img, :type, :price, :sqft, :user_id)
+end
 
 end

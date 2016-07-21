@@ -7,8 +7,8 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @property = Property.find_by_id[:property_id])
-    render :new
+    @property = Property.find_by_id(params[:property_id])
+    render :_new
   end
 
   def create
@@ -56,10 +56,24 @@ class ReviewsController < ApplicationController
     redirect_to property_path(property.id)
   end
 
+  def upvote
+    @review = Review.find(params[:id])
+    @review.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @review = Review.find(params[:id])
+    @review.downvote_by current_user
+    redirect_to :back
+  end
+
   private
 
   def review_params
-    params.require(:review).permit(:title, :text)
+    params.require(:review).permit(:title, :text, :user_id, :property_id)
   end
-  
+
+
+
 end

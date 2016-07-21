@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_action only: [:show, :edit, :update, :destroy]
 
-
+  def index
+    @user = User.all
+    render :index
+  end
+  
   def new
     @user = User.new
   end
@@ -46,7 +50,7 @@ class UsersController < ApplicationController
   def reviews
     @reviews = User.find(params[:id]).reviews
   end
-  
+
   private
 
   def user_params

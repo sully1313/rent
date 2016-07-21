@@ -1,0 +1,52 @@
+  <section id="coverphoto">
+    <div class="container row">
+  <div class="col l12">
+    <div class="card-panel" id="topPhoto">
+    <img src="<%= @property.img %>">
+  </div>
+</div>
+</div>
+</section>
+
+<div class="container row">
+  <div class="col l6" id="infoCard">
+    <div class="card panel">
+      <h5 class="address" id="address"> <%= @property.streetaddress %></h5>
+      <h5 class="address"> <%= @property.city %>, <%= @property.state %></h5>
+      <br>
+      <h5 id="specs" class="specs"><%= @property.price %></h5>
+      <br>
+      <h5 id="specs" class="specs"><%= @property.type %> </h5>
+      <br>
+      <h5 class="specs" id="specs">Square Ft: <%= @property.sqft %></h5>
+    </div>
+  </div>
+</div>
+
+<div class="container row">
+  <div class="col l6" id="reviews">
+    <div class="card-panel">
+<h3 id="propReviews">Property Reviews </h3>
+<button class="btn" id="propRoute">
+<%= link_to "Review Property", new_property_review_path(@property[:id])%>
+</button>
+<%= @review.each do |review| %>
+<div class="container row">
+<div class="card-panel" id="reviewCards">
+  <div class="card-title">
+    <h6><a href="/users/<%= review.user_id %>" class="button-link"> <%= review.user.first_name %> <%= review.user.last_name %></a></h6>
+    <strong><a href="/properties/<%= @property.id %>/reviews/<%= review.id %>" class="button-link"><%= review.title %></a></strong>
+  </div>
+  <div class="card-content">
+  <p><%= review.text %></p>
+</div>
+<div class="card-action">
+  <p><a href="#">edit</a></p>
+  <p><a href="#">delete</a></p>
+</div>
+</div>
+</div>
+<% end %>
+</div>
+</div>
+</div>

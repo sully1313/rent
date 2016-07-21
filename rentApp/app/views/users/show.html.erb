@@ -1,11 +1,24 @@
-<div class="container">
+<section id="coverphoto">
+  <div class="container row">
+<div class="col l12">
+  <div class="card-panel" id="topPhoto">
+  <img src="<%= @user.img %>">
+</div>
+</div>
+</div>
+</section>
+
+<div class="container row">
+  <div class="col l12" id="bodypanel">
   <div class="card-panel">
 
-    <div class="row">
-      <div class="col 12">
-        <h4>Hey <%= @user.first_name %></h4>
-        <% image_tag('', :class => "profphoto")%></img>
+    <div class="container row">
+      <div class="col l6">
+        <div class="card-image">
+        <h4 id="hey">Hey <%= @user.first_name %></h4>
+        <img src='http://www.net4surf.com/wp-content/uploads/2014/05/kanye-west-rappers-net-worth6.jpg' class="profphoto")></img>
       </div>
+    </div>
       <% if current_user.id == @user.id %>
       <div class="button">
         <a href='/users/<%=@user.id %>/edit' class="button-link">Update Profile</a>
@@ -13,18 +26,21 @@
       <% end %>
       <br>
     </div>
-    <div class="card-panel">
-      <div class="row">
-        <div class="col 12">
+
+      <div class="container">
+        <div class="col l6" id="infoProf">
+          <div class="card-panel">
           <div>
           <h4><%= @user.first_name %> <%= @user.last_name %>
           </div>
           <div>
-            Email:<%= @user.email %>
+            Email: <%= @user.email %>
           </div>
+          <br>
           <div>
             Hometown: <%= @user.hometown %>
           </div>
+          <br>
           <div>
             Social Media: <%= @user.sociallink %>
           </div>
@@ -32,12 +48,31 @@
       </div>
     </div>
 
-    <div class="col 12">
-      <h5>Reviews Timeline</h5>
-      <div class="card-panel">
-        <% @reviews.each do |review| %>
-        <div class="container">
-          <div class="Reviewheader">
-            <a href="/properties/<%= review.property_id %>/reviews/<%= review.id %>"><%= @review.title %></a>
-          </div>
-          
+    <div class="container row">
+      <div class="col l6" id="reviewPanel">
+        <div class="card-panel">
+    <h3 id="propReviews">Property Reviews </h3>
+    <button class="btn" id="propRoute">
+    <%= link_to "Search Properties", properties_path %>
+    </button>
+    <%= @reviews.each do |review| %>
+    <div class="container row">
+    <div class="card-panel" id="reviewCard">
+      <div class="card-title">
+        <h6><a href="/properties/<%= review.property_id %>" class="button-link"> <%= review.property.streetaddress %></a></h6>
+        <strong><%= review.title %></strong>
+      </div>
+      <div class="card-content">
+      <p><%= review.text %></p>
+    </div>
+    <div class="card-action">
+      <p><a href="#">edit</a></p>
+      <p><a href="#">delete</a></p>
+    </div>
+    </div>
+    </div>
+    <% end %>
+    </div>
+    </div>
+    </div>
+  </div>

@@ -1,4 +1,5 @@
 class Review < ActiveRecord::Base
-  belongs_to :property
   belongs_to :user
+  belongs_to :property
+  acts_as_votable
 end
