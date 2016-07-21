@@ -1,8 +1,8 @@
 <section id="coverphoto">
   <div class="container row">
-<div class="col l12">
+<div class="col l12 s12">
   <div class="card-panel" id="topPhoto">
-  <img src="<%= @user.img %>">
+  <img src="<%= @user.img %>" id="covPic">
 </div>
 </div>
 </div>
@@ -13,22 +13,22 @@
   <div class="card-panel">
 
     <div class="container row">
-      <div class="col l6">
+      <div class="col l6 s12">
         <div class="card-image">
         <h4 id="hey">Hey <%= @user.first_name %></h4>
         <img src='http://www.net4surf.com/wp-content/uploads/2014/05/kanye-west-rappers-net-worth6.jpg' class="profphoto")></img>
       </div>
     </div>
       <% if current_user.id == @user.id %>
-      <div class="button">
+      <button class="btn updateProf">
         <a href='/users/<%=@user.id %>/edit' class="button-link">Update Profile</a>
-      </div>
+      </button>
       <% end %>
       <br>
     </div>
 
       <div class="container">
-        <div class="col l6" id="infoProf">
+        <div class="col l6 s12" id="infoProf">
           <div class="card-panel">
           <div>
           <h4><%= @user.first_name %> <%= @user.last_name %>
@@ -42,20 +42,20 @@
           </div>
           <br>
           <div>
-            Social Media: <%= @user.sociallink %>
+            Social Media: <a href='<%= @user.sociallink %>'><%= @user.sociallink %></a>
           </div>
         </div>
       </div>
     </div>
 
     <div class="container row">
-      <div class="col l6" id="reviewPanel">
+      <div class="col l6 s12" id="reviewPanel">
         <div class="card-panel">
     <h3 id="propReviews">Property Reviews </h3>
     <button class="btn" id="propRoute">
     <%= link_to "Search Properties", properties_path %>
     </button>
-    <%= @reviews.each do |review| %>
+    <% @reviews.each do |review| %>
     <div class="container row">
     <div class="card-panel" id="reviewCard">
       <div class="card-title">

@@ -1,1 +1,26 @@
 <h1>Editing User</h1>
+
+<div class="container">
+  <%= form_for @user do |f| %>
+
+  <div>
+   <%= f.file_field :avatar %>
+  </div>
+  <div>
+  <%= f.text_field :first_name, placeholder: "First Name" %>
+  </div>
+  <div>
+  <%= f.text_field :last_name, placeholder: "Last Name" %>
+  </div>
+  <div>
+  <%= f.text_field :email, placeholder: "Email" %>
+  </div>
+  <div>
+    <%= f.text_field :hometown, placeholder: "Location" %>
+  </div>
+  <br>
+  <%= f.submit "Update Profile" %>
+
+  <% end %>
+
+</div>

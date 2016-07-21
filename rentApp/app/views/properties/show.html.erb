@@ -1,22 +1,22 @@
   <section id="coverphoto">
     <div class="container row">
-  <div class="col l12">
+  <div class="col l12 s12">
     <div class="card-panel" id="topPhoto">
-    <img src="<%= @property.img %>">
+    <img src="<%= @property.img %>" id="covPic">
   </div>
 </div>
 </div>
 </section>
 
 <div class="container row">
-  <div class="col l6" id="infoCard">
+  <div class="col l6 s12" id="infoCard">
     <div class="card panel">
       <h5 class="address" id="address"> <%= @property.streetaddress %></h5>
       <h5 class="address"> <%= @property.city %>, <%= @property.state %></h5>
       <br>
-      <h5 id="specs" class="specs"><%= @property.price %></h5>
+      <h5 id="specs" class="specs">Price: <%= @property.price %></h5>
       <br>
-      <h5 id="specs" class="specs"><%= @property.type %> </h5>
+      <h5 id="specs" class="specs"><%= @property.spec %> </h5>
       <br>
       <h5 class="specs" id="specs">Square Ft: <%= @property.sqft %></h5>
     </div>
@@ -24,13 +24,13 @@
 </div>
 
 <div class="container row">
-  <div class="col l6" id="reviews">
+  <div class="col l6 s12" id="reviews">
     <div class="card-panel">
 <h3 id="propReviews">Property Reviews </h3>
 <button class="btn" id="propRoute">
 <%= link_to "Review Property", new_property_review_path(@property[:id])%>
 </button>
-<%= @review.each do |review| %>
+<% @review.each do |review| %>
 <div class="container row">
 <div class="card-panel" id="reviewCards">
   <div class="card-title">

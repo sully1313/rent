@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.all
     render :index
   end
-  
+
   def new
     @user = User.new
   end

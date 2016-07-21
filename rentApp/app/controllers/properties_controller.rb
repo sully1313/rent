@@ -8,7 +8,7 @@ def index
       property_link = view_context.link_to property.streetaddress, property_path(property)
       marker.title property.streetaddress
       marker.infowindow "<h4><u>#{property_link}</u><h4>
-                            <i>#{property.streetaddress}</i>"
+                            <i>#{property.price}</i>"
     end
   render :index
 end
@@ -34,7 +34,7 @@ end
 private
 
 def property_params
-  params.require(:property).permit(:streetaddress, :city, :state, :latitude, :longitude, :img, :type, :price, :sqft, :user_id)
+  params.require(:property).permit(:streetaddress, :city, :state, :latitude, :longitude, :img, :spec, :price, :sqft, :user_id)
 end
 
 end
