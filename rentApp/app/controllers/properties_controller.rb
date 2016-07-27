@@ -14,12 +14,18 @@ def index
 end
 
 def show
+  if current_user == nil
+    flash[:error] = "Please login to view more about this property"
+    redirect_to "/properties"
+  else
   @property = Property.find(params[:id])
   @user = current_user
   @review = @property.reviews
   @reviews = Property.find(params[:id]).reviews
   render :show
+  end
 end
+
 
 def reviews
   @reviews = Property.find(params[:id]).reviews

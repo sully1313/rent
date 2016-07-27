@@ -32,6 +32,15 @@
 </button>
 <% @review.each do |review| %>
 <div class="container row">
+  <div class="col l1 s2">
+   <%= link_to like_reviews_path(review), method: :put, class: "fa fa-angle-up fa-4x", 'aria-hidden' => true do %>
+    <%= review.get_upvotes.size %>
+    <% end %>
+
+    <%= link_to dislike_reviews_path(review), method: :put, class: "fa fa-angle-down fa-4x", 'aria-hidden' => true do %>
+    <%= review.get_downvotes.size %>
+    <% end %>
+  </div>
 <div class="card-panel" id="reviewCards">
   <div class="card-title">
     <h6><a href="/users/<%= review.user_id %>" class="button-link"> <%= review.user.first_name %> <%= review.user.last_name %></a></h6>

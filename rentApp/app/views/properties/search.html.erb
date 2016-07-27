@@ -1,6 +1,12 @@
 <div id="homeBack">
   <div id='searchH1'>
     <div>
+      <% if session[:user_id].nil? %>
+      <h1>Rent<span id="logo13">13</span></h1>
+        <p id="quotes">Making the world a better place one review at a time</p>
+        <p id="quotes">Let us help you find your perfect home</p>
+      </div>
+      <% else %>
       <h1>Rent<span id="logo13">13</span></h1>
         <p id="quotes">Making the world a better place one review at a time</p>
         <p id="quotes">Let us help you find your perfect home</p>
@@ -8,8 +14,9 @@
     <button class="btn">
       <a href="/properties">Check Out Our Properties</a>
     </button>
+    <% end %>
   </div>
-</div>
+  </div>
 
 
     <!--start-->
