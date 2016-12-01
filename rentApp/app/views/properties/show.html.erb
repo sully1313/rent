@@ -33,11 +33,11 @@
 <% @review.each do |review| %>
 <div class="container row">
   <div class="col l1 s2">
-   <%= link_to like_reviews_path(review), method: :put, class: "fa fa-angle-up fa-4x", 'aria-hidden' => true do %>
+   <%= link_to like_reviews_path(review), method: :put, class: "fa fa-angle-up fa-3x", 'aria-hidden' => true do %>
     <%= review.get_upvotes.size %>
     <% end %>
 
-    <%= link_to dislike_reviews_path(review), method: :put, class: "fa fa-angle-down fa-4x", 'aria-hidden' => true do %>
+    <%= link_to dislike_reviews_path(review), method: :put, class: "fa fa-angle-down fa-3x", 'aria-hidden' => true do %>
     <%= review.get_downvotes.size %>
     <% end %>
   </div>
@@ -50,8 +50,9 @@
   <p><%= review.text %></p>
 </div>
 <div class="card-action">
-  <p><a href="#">edit</a></p>
-  <p><a href="#">delete</a></p>
+  <p><a href="#" id="edit">edit</a></p>
+
+  <p><a href="#" id="delete">delete</a></p>
 </div>
 </div>
 </div>
