@@ -128,7 +128,7 @@ button a {
   background-color: green;
   position: relative;
     right: 38%;
-    top: 550px;
+    top: 450px;
 }
 #covPic{
   height: 280px;
@@ -157,4 +157,40 @@ button a {
 }
 #edit {
   margin-right: 30%;
+}
+#see {
+  align-items: center;
+  text-align: center;
+  position: fixed;
+  left: 65px;
+  top: 65px;
+  right: 65px;
+  bottom: 65px;
+  background: rgba(0, 0, 0, .4)
+}
+.jumbo {
+  position: fixed;
+  margin-bottom: 15px;
+}
+#searchBtn {
+  position: fixed;
+  right: 41%;
+  bottom: 17%;
+  z-index: 3;
+}
+h1.jumbo {
+  left: 41%;
+  top: 17%;
+}
+#quotes {
+  left: 32%;
+  bottom: 32%;
+  font-style: italic;
+  font-size: 2em;
+}
+#quotes1 {
+  left: 26%;
+  bottom: 47%;
+  font-style: italic;
+  font-size: 2em;
 }
